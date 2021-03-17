@@ -33,8 +33,15 @@ into the callback.
 ////loop through array
 //create alias for el
 //if el and its index return true
-let mySome = function() {
+let mySome = function(array, cb) {
+    for (let i = 0; i < array.length; i++) {
+        let el = array[i];
+        if (cb(el, i)) {
+            return true;
+        }
+    }
 
+    return false;
 };
 
 
