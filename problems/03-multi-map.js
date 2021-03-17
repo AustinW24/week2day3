@@ -27,9 +27,10 @@ through the callback n times.
 *******************************************************************************/
 
 let multiMap = function(val, n, cb) {
-  for(var i = 0; i < n; i++ ) {
-    cb(); 
+  for (let i = 0; i < n; i++) {
+    val = cb(val)
   }
+    return val;
 };
 
 let result1 = multiMap(7, 2, function(n) {
