@@ -27,11 +27,26 @@ console.log(result4); // true
 
 *******************************************************************************/
 
-let exactly = function() {
+let exactly = function(array, num, cb) {
+let total = 0;
+array.forEach(function(el) {
+    if(cb(el) === true) {
+        total ++;
+    }
+})
+return total === num;
 
 };
 
+let result3 = exactly(['follow', 'the', 'yellow', 'brick', 'road'], 1, function (str) {
+    return str.includes('x');
+});
+console.log(result3); // false
 
+let result4 = exactly(['follow', 'the', 'yellow', 'brick', 'road'], 0, function (str) {
+    return str.includes('x');
+});
+console.log(result4); // true
 
 
 
